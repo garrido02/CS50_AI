@@ -7,4 +7,6 @@
   
   We can frame this as a search problem: our states are people. Our actions are movies, which take us from one actor to another (it’s true that a movie could take us to multiple different actors, but that’s okay for this problem). Our initial state and goal state are defined by the two people we’re trying to connect. By using breadth-first search, we can find the shortest path from one actor to another. 
 
-<img width="556" height="670" alt="0a" src="https://github.com/user-attachments/assets/da8426fc-d9f0-4800-9eee-4734a6c10d31" />
+
+<img width="548" height="660" alt="imagem" src="https://github.com/user-attachments/assets/84067d23-eeb0-4ec6-9b6c-66580496e218" />
+
