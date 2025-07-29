@@ -5,5 +5,4 @@
 
 ### Project 0 - Search:
 
-#### 0a - Degrees
-#### 0b - Tic Tac Toe
+ #### 0a - Degrees - Find the minimum connection between actors that haven't been on a movie together.
