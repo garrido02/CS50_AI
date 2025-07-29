@@ -6,4 +6,4 @@
 
 ### Project 0 - Search:
 
- #### 0a - Degrees - Find the minimum connection between actors that haven't been on a movie together.
+ #### 0a - Degrees - Finds the shortest path between any two actors by choosing a sequence of movies that connects them.
