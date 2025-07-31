@@ -1,6 +1,6 @@
 ### Project 0 - Search:
 
-#### 0a - Degrees
+### 0a - Degrees
   According to the Six Degrees of Kevin Bacon game, anyone in the Hollywood film industry can be connected to Kevin Bacon within six steps, where each step consists of finding a film that two actors both starred in.
   
   In this problem, we’re interested in finding the shortest path between any two actors by choosing a sequence of movies that connects them. For example, the shortest path between Jennifer Lawrence and Tom Hanks is 2: Jennifer Lawrence is connected to Kevin Bacon by both starring in “X-Men: First Class,” and Kevin Bacon is connected to Tom Hanks by both starring in “Apollo 13.”
@@ -11,8 +11,10 @@
 <img width="548" height="660" alt="degrees" src="https://github.com/user-attachments/assets/84067d23-eeb0-4ec6-9b6c-66580496e218" />
 
 
-#### 0b - Tic Tac Toe
+### 0b - Tic Tac Toe
   The classic game where the player face an opposing AI. The AI was coded using the minimax algorigthm and with alpha-beta pruning to account for efficiency.
+
+
 
 
   #### The minimax approach can be framed in the following scenario:
@@ -21,6 +23,8 @@
   The objective of the maximizing player is to increase the shared score as high as he can and, as you guessed it, the objective of the minimizing player is to decrease the score as much as he can.
     
   To better understand the logic behind minimax let's consider a concrete competition where this approach can be used and easily understood.
+
+
 
 
   #### The dessert competition:
@@ -44,6 +48,8 @@
   However, on a 3x3 grid such as the one in tic tac toe, on a fresh new game the AI will have to compute 9! (9 factorial) possible combinations of plays, ie, 362 880 different possibilities before the first turn if over.  
 
   Here is when efficiency becomes key and for that we will introduce an optimization algorithm named alpha-beta pruning.
+
+
 
 
   #### Alpha-Beta Pruning:
