@@ -17,18 +17,18 @@
   The minimax approach can be framed in the following scenario:
     Let's propose that we have two players. One name maximazing and the other named minimizing. Both players have a competition going on between them where the goal of the competition is, of course, to have a winner. But there is a catch: The score is shared between them.
     
-    The objetive of the maximizing player is to increase the shared score as high as he can and, as you guessed it, the objective of the minimizing player is to decrease the score as much as he can.
+    The objective of the maximizing player is to increase the shared score as high as he can and, as you guessed it, the objective of the minimizing player is to decrease the score as much as he can.
     
     To better understand the logic behind minimax let's consider a concrete competition where this approach can be used and easily understood.
 
-    The desert competition:
+    The dessert competition:
       Each player takes turns, without any preference with regards to whoever starts first. 
       
-      The first player to play will have at his disposal 3 tables each with 3 deserts placed on them, ie, 9 choices of deserts. This player will then have to choose 1 desert from each table and bring them to the second player, ie, 3 choices to the second player.
+      The first player to play will have at his disposal 3 tables each with 3 desserts placed on them, ie, 9 choices of desserts. This player will then have to choose 1 dessert from each table and bring them to the second player, ie, 3 choices to the second player.
       
-      Considering the minimizing player starts first, we know that the goal of this player is to decreased the shared score as much as he can. Let's consider that each desert is evaluated on a scale of 0 to 10. We then know for certain that this player will choose from each table the desert that is closer to 0 on the scale.
+      Considering the minimizing player starts first, we know that the goal of this player is to decreased the shared score as much as he can. Let's consider that each dessert is evaluated on a scale of 0 to 10. We then know for certain that this player will choose from each table the dessert that is closer to 0 on the scale.
 
-      After the minimizing player chooses 1 desert from each of the 3 tables, the maximizing player will then choose 1 desert from the 3 deserts presented by the minimizing player. Only this time, he will choose the desert closer to 10 on the scale.
+      After the minimizing player chooses 1 dessert from each of the 3 tables, the maximizing player will then choose 1 dessert from the 3 desserts presented by the minimizing player. Only this time, he will choose the dessert closer to 10 on the scale.
 
       We can see that having a winner is not an easy or direct task, mostly because each player is not really trying to win. They are, however, trying to decrease the chances of the other player winning.
 
@@ -51,8 +51,7 @@
 
     The image bellow demonstrates this idea visually:
 
-    INSERT IMAGE
-
+    <img width="1600" height="898" alt="0b" src="https://github.com/user-attachments/assets/04c21627-6b2d-4ad0-b92e-c8a35a524bc4" />
 
     Consider that the maximizing player is represented by the green triangles (alpha) and the minimizing player by the red ones (beta).
 
