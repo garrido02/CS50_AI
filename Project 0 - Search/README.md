@@ -14,14 +14,16 @@
 #### 0b - Tic Tac Toe
   The classic game where the player face an opposing AI. The AI was coded using the minimax algorigthm and with alpha-beta pruning to account for efficiency.
 
-  ##### The minimax approach can be framed in the following scenario:
+
+  #### The minimax approach can be framed in the following scenario:
   Let's propose that we have two players. One name maximazing and the other named minimizing. Both players have a competition going on between them where the goal of the competition is, of course, to have a winner. But there is a catch: The score is shared between them.
     
   The objective of the maximizing player is to increase the shared score as high as he can and, as you guessed it, the objective of the minimizing player is to decrease the score as much as he can.
     
   To better understand the logic behind minimax let's consider a concrete competition where this approach can be used and easily understood.
 
-  ##### The dessert competition:
+
+  #### The dessert competition:
   Each player takes turns, without any preference with regards to whoever starts first. 
       
   The first player to play will have at his disposal 3 tables each with 3 desserts placed on them, ie, 9 choices of desserts. This player will then have to choose 1 dessert from each table and bring them to the second player, ie, 3 choices to the second player.
@@ -43,7 +45,8 @@
 
   Here is when efficiency becomes key and for that we will introduce an optimization algorithm named alpha-beta pruning.
 
-  ##### Alpha-Beta Pruning:
+
+  #### Alpha-Beta Pruning:
   The objetive of this algorithm is to skip all the playable scenarios that we know will never happen.
 
   How can we know for sure a scenario won't play out? Because we know that the basic premiss of one player is to maximize and the other to minimize the score.
