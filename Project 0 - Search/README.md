@@ -1,5 +1,7 @@
 ### Project 0 - Search:
 
+<br></br>
+
 ### 0a - Degrees
   According to the Six Degrees of Kevin Bacon game, anyone in the Hollywood film industry can be connected to Kevin Bacon within six steps, where each step consists of finding a film that two actors both starred in.
   
@@ -10,6 +12,8 @@
 
 <img width="548" height="660" alt="degrees" src="https://github.com/user-attachments/assets/84067d23-eeb0-4ec6-9b6c-66580496e218" />
 
+<br></br>
+<br></br>
 
 ### 0b - Tic Tac Toe
   The classic game where the player face an opposing AI. The AI was coded using the minimax algorigthm and with alpha-beta pruning to account for efficiency.
