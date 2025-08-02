@@ -10,7 +10,7 @@
 
   0b - Tic Tac Toe - The classic game where the player faces an opposing AI. 
 
-
+<br></br>
 
 ### Project 1 - Knowledge:
 
