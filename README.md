@@ -3,6 +3,7 @@
  All projects from CS50's - Introduction to Artificial Intelligence with Python.
  For details on each project and it's implementation check the respective directory.
 
+<br></br>
 
 ### Project 0 - Search:
 
