@@ -47,7 +47,7 @@
   Back to Tic Tac Toe.
   As we know understand minimax, the analogy to the classic game is very obvious. The minimizing player is looking into the future, seeing all possible playable scenarios where he can turn the tide in his favour. While the maximizing player is doing the opposite. A constant game of tug-o' war.
 
-  However, on a 3x3 grid such as the one in tic tac toe, on a fresh new game the AI will have to compute 9 factorial (9!) possible combinations of plays, ie, 362 880 different possibilities before the first turn is over.  
+  However, on a 3x3 grid such as the one in tic tac toe, on a fresh new game the AI will have to compute 9 factorial (9x8x...x1) possible combinations of plays, ie, 362 880 different possibilities before the first turn is over.  
 
   Here is when efficiency becomes key and for that we will introduce an optimization algorithm named alpha-beta pruning.
 
