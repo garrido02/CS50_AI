@@ -70,7 +70,9 @@ If we’re being even more clever, there’s one final type of inference we can 
 
 Consider just the two sentences our AI would know based on the top middle cell and the bottom middle cell. From the top middle cell, we have {A, B, C} = 1. From the bottom middle cell, we have {A, B, C, D, E} = 2. Logically, we could then infer a new piece of knowledge, that {D, E} = 1. After all, if two of A, B, C, D, and E are mines, and only one of A, B, and C are mines, then it stands to reason that exactly one of D and E must be the other mine.
 
-More generally, any time we have two sentences set1 = count1 and set2 = count2 where set1 is a subset of set2, then we can construct the new sentence set2 - set1 = count2 - count1. Consider the example above to ensure you understand why that’s true.
+More generally, any time we have two sentences set1 = count1 and set2 = count2 where set1 is a subset of set2, then we can construct the new sentence set2 - set1 = count2 - count1. Consider the example above to ensure you understand why that’s true. 
+
+This technique is called resolution and more theoretical explanation is that when we have two clauses, for instance {A, B, C} and {~C} (not C) we can infer {A, B}. In our game, when we have a bigger clause and a subclause of that such as {A, B, C, D, E} and {A, B, C} what we are saying is that we can assume we have {~A, ~B, ~C} so that the resolution of both clauses will give us {D, E}.
 
 So using this method of representing knowledge, we can write an AI agent that can gather knowledge about the Minesweeper board, and hopefully select cells it knows to be safe!
 
