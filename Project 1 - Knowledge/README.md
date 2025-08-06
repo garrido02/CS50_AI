@@ -32,7 +32,7 @@ Given this information, a logical player could conclude that there must be a min
 
 The goal of the game is to flag (i.e., identify) each of the mines. In many implementations of the game, including the one in this project, the player can flag a mine by right-clicking on a cell (or two-finger clicking, depending on the computer).
 
-Your goal in this project will be to build an AI that can play Minesweeper. Recall that knowledge-based agents make decisions by considering their knowledge base, and making inferences based on that knowledge.
+My goal in this project will be to build an AI that can play Minesweeper. Knowing that knowledge-based agents make decisions by considering their knowledge base, and making inferences based on that knowledge.
 
 One way we could represent an AI’s knowledge about a Minesweeper game is by making each cell a propositional variable that is true if the cell contains a mine, and false otherwise.
 
