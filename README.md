@@ -16,3 +16,4 @@
 ### Project 1 - Knowledge:
 
  1a - Knights - Through the use of logical rules I wrote an AI capable of deducing the conclusion of certain problems and puzzles.
+ 1b - Minesweeper - The classic game where this time the AI will play for you decide which squares are safe based on known knowledge of the board.
