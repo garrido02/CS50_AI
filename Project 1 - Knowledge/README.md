@@ -72,7 +72,7 @@ Consider just the two sentences our AI would know based on the top middle cell a
 
 More generally, any time we have two sentences set1 = count1 and set2 = count2 where set1 is a subset of set2, then we can construct the new sentence set2 - set1 = count2 - count1. Consider the example above to ensure you understand why that’s true. 
 
-This technique is called resolution and more a theoretical explanation is that when we have two clauses, for instance {A, B, C} and {~C} (not C) we can infer {A, B}. In our game, when we have a bigger clause and a subclause of that such as {A, B, C, D, E} and {A, B, C} what we are saying is that we can assume we have {~A, ~B, ~C} so that the resolution of both clauses will give us {D, E}.
+This technique is called resolution and a more theoretical explanation is that when we have two clauses, for instance {A, B, C} and {~C} (not C) we can infer {A, B}. In our game, when we have a bigger clause and a subclause of that such as {A, B, C, D, E} and {A, B, C} what we are saying is that we can assume we have {~A, ~B, ~C} so that the resolution of both clauses will give us {D, E}.
 
 Using this method of representing knowledge, we can write an AI agent that can gather knowledge about the Minesweeper board, and hopefully select cells it knows to be safe!
 
