@@ -21,7 +21,7 @@
 
 <br></br>
 
-### Project 1 - Uncertainty:
+### Project 2 - Uncertainty:
 
 2a - PageRank - Write an AI to rank web pages by importance.
 
