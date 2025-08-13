@@ -26,3 +26,9 @@
 2a - PageRank - Write an AI to rank web pages by importance.
 
 2b - Write an AI to assess the likelihood that a person will have a particular genetic trait.
+
+<br></br>
+
+### Project 3 - Optimization:
+
+3a - Crosswords
