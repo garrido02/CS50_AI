@@ -31,4 +31,4 @@
 
 ### Project 3 - Optimization:
 
-3a - Crosswords
+3a - Write an AI to generate crossword puzzles.
