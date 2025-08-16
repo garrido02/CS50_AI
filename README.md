@@ -25,10 +25,21 @@
 
 2a - PageRank - Write an AI to rank web pages by importance.
 
-2b - Write an AI to assess the likelihood that a person will have a particular genetic trait.
+2b - Heredity - Write an AI to assess the likelihood that a person will have a particular genetic trait.
 
 <br></br>
 
 ### Project 3 - Optimization:
 
 3 - Write an AI to generate crossword puzzles.
+
+<br></br>
+
+### Project 4 - Machine Learning:
+
+4a - Shopping - Write an AI to predict whether online shopping customers will complete a purchase through supervised learning.
+
+4b - Nim -  Write an AI that teaches itself to play Nim through reinforcement learning.
+
+<br></br>
+
