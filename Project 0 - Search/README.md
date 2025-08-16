@@ -20,8 +20,8 @@
 ### 0b - Tic Tac Toe
   The classic game where the player face an opposing AI. The AI was coded using the minimax algorithm and with alpha-beta pruning to account for efficiency.
 
-  <br></br>
-  
+  [<br></br>](https://cs50.harvard.edu/ai/projects/0/tictactoe/images/game.png)<img width="712" height="534" alt="image" src="https://github.com/user-attachments/assets/c866e9b1-c987-4579-bd78-cc9ba52640ea" />
+
   #### The minimax approach can be framed in the following scenario:
   Let's propose that we have two players. One named maximizing and the other named minimizing. Both players have a competition going on between them where the goal of the competition is, of course, to have a winner. But there is a catch: The score is shared between them.
     
