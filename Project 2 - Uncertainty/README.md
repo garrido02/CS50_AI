@@ -4,6 +4,10 @@
 
 ### 2a - PageRank
 
+Write an AI to rank web pages by importance.
+
+<img width="1062" height="232" alt="image" src="https://github.com/user-attachments/assets/d52dd93f-d32a-4bf8-a5f6-79a3599f55e9" />
+
 When search engines like Google display search results, they do so by placing more “important” and higher-quality pages higher in the search results than less important pages. But how does the search engine know which pages are more important than other pages?
 
 One heuristic might be that an “important” page is one that many other pages link to, since it’s reasonable to imagine that more sites will link to a higher-quality webpage than a lower-quality webpage. We could therefore imagine a system where each page is given a rank according to the number of incoming links it has from other pages, and higher ranks would signal higher importance.
@@ -56,6 +60,10 @@ How would we go about calculating PageRank values for each page, then? We can do
 <br></br>
 
 ### 2b - Heredity
+
+Write an AI to assess the likelihood that a person will have a particular genetic trait.
+
+<img width="1056" height="510" alt="image" src="https://github.com/user-attachments/assets/8bd091d5-f383-4fb5-94b8-8f40e67aa942" />
 
 Mutated versions of the GJB2 gene are one of the leading causes of hearing impairment in newborns. Each person carries two versions of the gene, so each person has the potential to possess either 0, 1, or 2 copies of the hearing impairment version GJB2. Unless a person undergoes genetic testing, though, it’s not so easy to know how many copies of mutated GJB2 a person has. This is some “hidden state”: information that has an effect that we can observe (hearing impairment), but that we don’t necessarily directly know. After all, some people might have 1 or 2 copies of mutated GJB2 but not exhibit hearing impairment, while others might have no copies of mutated GJB2 yet still exhibit hearing impairment.
 
