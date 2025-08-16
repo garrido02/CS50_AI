@@ -17,6 +17,7 @@ class Nim():
         self.player = 0
         self.winner = None
 
+
     @classmethod
     def available_actions(cls, piles):
         """
@@ -32,6 +33,7 @@ class Nim():
                 actions.add((i, j))
         return actions
 
+
     @classmethod
     def other_player(cls, player):
         """
@@ -40,11 +42,13 @@ class Nim():
         """
         return 0 if player == 1 else 1
 
+
     def switch_player(self):
         """
         Switch the current player to the other player.
         """
         self.player = Nim.other_player(self.player)
+
 
     def move(self, action):
         """
@@ -86,6 +90,7 @@ class NimAI():
         self.alpha = alpha
         self.epsilon = epsilon
 
+
     def update(self, old_state, action, new_state, reward):
         """
         Update Q-learning model, given an old state, an action taken
@@ -96,18 +101,28 @@ class NimAI():
         best_future = self.best_future_reward(new_state)
         self.update_q_value(old_state, action, old, reward, best_future)
 
+
     def get_q_value(self, state, action):
         """
         Return the Q-value for the state `state` and the action `action`.
         If no Q-value exists yet in `self.q`, return 0.
+
+        State is given as a list of integers [1,2,3,4]
+
+        Action is a tuple of integers (i,j)
         """
-        raise NotImplementedError
+        # Grab the value from the dictionary. Convert the state to a tuple
+        qValue = self.q.get((tuple(state), action))
+        if qValue is None:
+            return 0
+        return qValue
+
 
     def update_q_value(self, state, action, old_q, reward, future_rewards):
         """
         Update the Q-value for the state `state` and the action `action`
         given the previous Q-value `old_q`, a current reward `reward`,
-        and an estiamte of future rewards `future_rewards`.
+        and an estimate of future rewards `future_rewards`.
 
         Use the formula:
 
@@ -118,7 +133,15 @@ class NimAI():
         `alpha` is the learning rate, and `new value estimate`
         is the sum of the current reward and estimated future rewards.
         """
-        raise NotImplementedError
+        # The new estimated value is the sum of the current reward and the future rewards
+        newValEstimate = reward + future_rewards
+
+        # Apply the formula Q(s, a) <- old value estimate + alpha * (new value estimate - old value estimate)
+        value = old_q + self.alpha * (newValEstimate - old_q)
+
+        # Update the dictionary
+        self.q[(tuple(state), action)] = value
+
 
     def best_future_reward(self, state):
         """
@@ -130,7 +153,29 @@ class NimAI():
         Q-value in `self.q`. If there are no available actions in
         `state`, return 0.
         """
-        raise NotImplementedError
+        # We want to keep the max q-value found
+        maxVal = -math.inf
+
+        # Iterate the list
+        for i in range(len(state)):
+            # Grab the value of the object in index i
+            value = state[i]
+            # For each possible "take" associate an action. "take" belongs to the interval 1 <= j <= state[i]
+            for j in range(1, value+1):
+                action = (i, j)
+                # Grab the qValue of the part (state, action)
+                qValue = self.q.get((tuple(state), action))
+                if qValue is None:
+                    maxVal = max(maxVal, 0)
+                else:
+                    maxVal = max(maxVal, qValue)
+
+        # If the max value is the default value return 0. Otherwise, return the max val found
+        if maxVal == -math.inf:
+            return 0
+        else:
+            return maxVal
+
 
     def choose_action(self, state, epsilon=True):
         """
@@ -146,8 +191,40 @@ class NimAI():
 
         If multiple actions have the same Q-value, any of those
         options is an acceptable return value.
+
+        We choose the best action 1-epsilon times. We choose a random choice epsilon times.
+
+        So random.random() < epsilon or epsilon is true -> random approach
+            else -> greedy approach.
         """
-        raise NotImplementedError
+        # Start a list of all possible actions on the current state and randomize for probabilities
+        actions = []
+        probability = random.random()
+
+        # For the greedy approach get the bestQ
+        if not epsilon or (epsilon and probability >= self.epsilon):
+            bestQ = self.best_future_reward(state)
+        else:
+            bestQ = 0
+
+        # Iterate the current state
+        for i in range(len(state)):
+            # Get the object corresponding to index i
+            value = state[i]
+            # Iterate the object for all possible actions
+            for j in range(1, value+1):
+                # Assign an option and get the value from the dictionary of states
+                action = (i, j)
+                qValue = self.q.get((tuple(state), action))
+                # We want to consider the greedy approach. Break early and prune the rest
+                if ((epsilon and probability >= self.epsilon) or not epsilon) and qValue == bestQ:
+                    return action
+                # We want to consider the random approach or if we want the greedy approach we haven't found bestQ
+                else:
+                    actions.append((i, j))
+
+        # Choose randomly between all possible actions
+        return random.choice(actions)
 
 
 def train(n):
