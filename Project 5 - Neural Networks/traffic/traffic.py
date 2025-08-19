@@ -91,17 +91,16 @@ def get_model():
         # Specify the sizing
         tf.keras.Input(shape=(IMG_WIDTH, IMG_HEIGHT, 3)),
 
-        # Convolutional layers. Learn 32 filters using a 3x3 kernel
+        # First convolutional layer. Learn 32 patterns (filters) using a 3x3 kernel. Edges and outlines of the image
         tf.keras.layers.Conv2D(
             filters=32,
             kernel_size=(3, 3),
             activation="relu",
         ),
-
         # Max-pooling layer using a 2x2 pool size
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
-        # Add a second convolutional layer
+        # Add a second convolutional layer. Shapes like triangles and circles
         tf.keras.layers.Conv2D(
             filters=64,
             kernel_size=(3, 3),
@@ -109,7 +108,7 @@ def get_model():
         ),
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
 
-        # Add a third convolutional layer
+        # Add a third convolutional layer. Information inside the shapes learnt, for instance, number inside a sign
         tf.keras.layers.Conv2D(
             filters=128,
             kernel_size=(3, 3),
@@ -127,6 +126,8 @@ def get_model():
         # Output layer with softmax so that we can turn the features learnt into probability of being a certain sign
         tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax"),
     ])
+
+    # Compile the model 
     model.compile(
         optimizer="adam",
         loss="categorical_crossentropy",
