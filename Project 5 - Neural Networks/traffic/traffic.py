@@ -3,7 +3,6 @@ import numpy as np
 import os
 import sys
 import tensorflow as tf
-
 from sklearn.model_selection import train_test_split
 
 EPOCHS = 10
@@ -58,7 +57,27 @@ def load_data(data_dir):
     be a list of integer labels, representing the categories for each of the
     corresponding `images`.
     """
-    raise NotImplementedError
+    # Initialize the return lists
+    images = []
+    labels = []
+
+    # Read through each directory in data_dir
+    for category in os.listdir(data_dir):
+        # Each category has various images
+        for img in os.listdir(os.path.join(data_dir, category)):
+            # Prevent the case in which a non-image file slipped in to a directory
+            if img is not None:
+                # Use cv2 to open the image as a multidimensional array. Thus creating a neural network
+                img = cv2.imread(os.path.join(data_dir, category, img))
+                # Resize the image so that all are the same size in the neural network
+                img = cv2.resize(img, (IMG_WIDTH, IMG_HEIGHT))
+                # Store in the return data structures
+                images.append(img)
+                labels.append(int(category))
+
+    # Normalize the images array so that they become pixels from 0 to 1
+    images = np.array(images) / 255.0
+    return images, labels
 
 
 def get_model():
@@ -67,7 +86,53 @@ def get_model():
     `input_shape` of the first layer is `(IMG_WIDTH, IMG_HEIGHT, 3)`.
     The output layer should have `NUM_CATEGORIES` units, one for each category.
     """
-    raise NotImplementedError
+    # Create the convolutional neural network
+    model = tf.keras.models.Sequential([
+        # Specify the sizing
+        tf.keras.Input(shape=(IMG_WIDTH, IMG_HEIGHT, 3)),
+
+        # Convolutional layers. Learn 32 filters using a 3x3 kernel
+        tf.keras.layers.Conv2D(
+            filters=32,
+            kernel_size=(3, 3),
+            activation="relu",
+        ),
+
+        # Max-pooling layer using a 2x2 pool size
+        tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+
+        # Add a second convolutional layer
+        tf.keras.layers.Conv2D(
+            filters=64,
+            kernel_size=(3, 3),
+            activation="relu",
+        ),
+        tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+
+        # Add a third convolutional layer
+        tf.keras.layers.Conv2D(
+            filters=128,
+            kernel_size=(3, 3),
+            activation="relu",
+        ),
+        tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+
+        # Flatten the units
+        tf.keras.layers.Flatten(),
+
+        # We add a hidden layer with dropout to avoid overfitting. Use ReLu for hidden layers (extract info)
+        tf.keras.layers.Dense(NUM_CATEGORIES * 4, activation="relu"),
+        tf.keras.layers.Dropout(0.5),
+
+        # Output layer with softmax so that we can turn the features learnt into probability of being a certain sign
+        tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax"),
+    ])
+    model.compile(
+        optimizer="adam",
+        loss="categorical_crossentropy",
+        metrics=["accuracy"],
+    )
+    return model
 
 
 if __name__ == "__main__":
