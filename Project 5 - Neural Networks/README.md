@@ -12,7 +12,9 @@ In this project, TensorFlow was used to build a neural network to classify road 
 
 Several such data sets exist, but for this project, we’ll use the German Traffic Sign Recognition Benchmark (GTSRB) dataset, which contains thousands of images of 43 different kinds of road signs.
 
-We used 3 convolutional layers to understand the patterns inside each sign image. The image was divided in 2x2 sections. The first layer was used to understand very basic information such as edges by learning 32 patters in each section of the image. The second layer tried to understand shapes such as triangles and circles by learning 64 patterns inside each section. Lastly, the third layer tried to understand parts of the traffic sign itself by learning 128 patters in each section.
+We used 3 convolutional layers to understand the patterns inside each sign image. The image was divided in 3x3 sections. The first layer was used to understand very basic information such as edges by learning 32 patters in each section of the image. The second layer tried to understand shapes such as triangles and circles by learning 64 patterns inside each section. Lastly, the third layer tried to understand parts of the traffic sign itself by learning 128 patters in each section.
+
+Between each convolutional layer a max-pooling layer was used to downscale the image. The downscale was done by getting dividing the image in 2x2 sections and getting the maximum value of a pixel in that area.
 
 A hidden layer with 4x as many categories of traffic signs was used to extract all the information gathered and corretely understand and differenciate this information allowing to corretely identify the category in which a traffic sign belongs to.
 
