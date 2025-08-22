@@ -31,7 +31,7 @@
 
 ### Project 3 - Optimization:
 
-3 - Write an AI to generate crossword puzzles.
+3 - Crossword - Write an AI to generate crossword puzzles.
 
 <br></br>
 
@@ -42,4 +42,8 @@
 4b - Nim -  Write an AI that teaches itself to play Nim through reinforcement learning.
 
 <br></br>
+
+### Project 5 - Neural Networks:
+
+5 - Traffic - Write an AI to identify which traffic sign appears in a photograph.
 
