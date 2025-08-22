@@ -47,3 +47,13 @@
 
 5 - Traffic - Write an AI to identify which traffic sign appears in a photograph.
 
+<br></br>
+
+### Project 6 - Natural Language
+
+6a - Parser - Write an AI to parse sentences and extract noun phrases.
+6b - Attention - Write an AI to predict a masked word in a text sequence.
+
+<br></br>
+
+![alt text](CS50AI.png)
