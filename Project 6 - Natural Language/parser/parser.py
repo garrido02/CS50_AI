@@ -15,7 +15,11 @@ V -> "smiled" | "tell" | "were"
 """
 
 NONTERMINALS = """
-S -> N V
+S -> NP VP | S Conj S
+NP -> N | Det Nominal | NP PP
+Nominal -> Adj Nominal | N
+VP -> V | V NP | V PP | VP Conj VP
+PP -> P NP
 """
 
 grammar = nltk.CFG.fromstring(NONTERMINALS + TERMINALS)
@@ -62,7 +66,16 @@ def preprocess(sentence):
     and removing any word that does not contain at least one alphabetic
     character.
     """
-    raise NotImplementedError
+    processedSentence = []
+
+    # Create a token for each word in the sentence
+    for token in nltk.word_tokenize(sentence):
+        # If any char of that word is alphabetical then we want to append it to the list in lower case.
+        if any(char.isalpha() for char in token):
+            processedSentence.append(token.lower())
+
+    # Return the processed sentence
+    return processedSentence
 
 
 def np_chunk(tree):
@@ -72,7 +85,21 @@ def np_chunk(tree):
     whose label is "NP" that does not itself contain any other
     noun phrases as subtrees.
     """
-    raise NotImplementedError
+    chunks = []
+
+    # Loop through each subtree of the tree
+    for subtree in tree.subtrees():
+        # Check for those who are NP
+        if subtree.label() == "NP":
+            # Look for the children of the current subtree and check if any is labeled as NP
+            # Remember that the subtree itself is the first child so we must guarantee we skip it
+            hasNP = any(child.label() == "NP" for child in subtree.subtrees() if child != subtree)
+            # If not, append
+            if not hasNP:
+                chunks.append(subtree)
+
+    # Return the non phrase chunks
+    return chunks
 
 
 if __name__ == "__main__":
