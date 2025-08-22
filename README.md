@@ -52,6 +52,7 @@
 ### Project 6 - Natural Language
 
 6a - Parser - Write an AI to parse sentences and extract noun phrases.
+
 6b - Attention - Write an AI to predict a masked word in a text sequence.
 
 <br></br>
